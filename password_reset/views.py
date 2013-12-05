@@ -132,7 +132,7 @@ class Reset(SaltMixin, generic.FormView):
         ctx = super(Reset, self).get_context_data(**kwargs)
         if 'invalid' not in ctx:
             ctx.update({
-                'username': self.user.username,
+                'username': self.user.get_full_name(),
                 'token': self.kwargs['token'],
             })
         return ctx
